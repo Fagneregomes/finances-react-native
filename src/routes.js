@@ -6,6 +6,10 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 
 import Dashboard from "./pages/Dashboard";
+import New from "./pages/New";
+import Profile from "./pages/Profile";
+
+import { commonStyles } from './styles'
 
 const Routes = createAppContainer(
   createSwitchNavigator({
@@ -16,6 +20,16 @@ const Routes = createAppContainer(
     }),
     App: createBottomTabNavigator({
       Dashboard,
+      New,
+      Profile
+    }, {
+      tabBarOptions: {
+        //showLabel: false,
+        activeTintColor: '#FFF',
+        style: {
+          backgroundColor: commonStyles.primary
+        }
+      }
     })
   })
 );

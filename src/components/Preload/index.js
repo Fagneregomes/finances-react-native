@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import firebase from '../../services/firebaseConnection'
-import { View, Text, ActivityIndicator } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 
 import { Background, Container } from './styles'
 

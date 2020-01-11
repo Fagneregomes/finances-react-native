@@ -1,8 +1,8 @@
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient'
-
+import { commonStyles } from '../../styles'
 export const Background = styled(LinearGradient).attrs({
-  colors: ['#7159c1', '#4B0082']
+  colors: [commonStyles.primary, commonStyles.secundary]
 })`
   flex: 1;
 `;

@@ -1,3 +1,4 @@
 export const commonStyles = {
-  primary: '#7159c1'
+  primary: '#FF512F',
+  secundary: '#F09819'
 }
