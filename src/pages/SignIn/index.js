@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import firebase from '../../services/firebaseConnection'
 
 import {
   Background,
@@ -16,6 +17,13 @@ export default function SignIn({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  async function handleSubmit() {
+    if (email, password) {
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .catch(error => alert(error.code))
+    }
+  }
+
   return (
     <Background>
       <Container>
@@ -27,7 +35,7 @@ export default function SignIn({ navigation }) {
             autoCorrect={false}
             autoCapitalize="none"
             value={email}
-            onChange={text => setEmail(text)}
+            onChangeText={text => setEmail(text)}
           />
         </AreaInput>
 
@@ -38,11 +46,11 @@ export default function SignIn({ navigation }) {
             autoCapitalize="none"
             secureTextEntry={true}
             value={password}
-            onChange={text => setPassword(text)}
+            onChangeText={text => setPassword(text)}
           />
         </AreaInput>
 
-        <SubmitButton onPress={() => { }}>
+        <SubmitButton onPress={handleSubmit}>
           <SubmitText>Acessar</SubmitText>
         </SubmitButton>
 

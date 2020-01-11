@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
+import firebase from '../../services/firebaseConnection'
+
+import { Text } from 'react-native'
 
 import {
   Background,
@@ -17,6 +20,27 @@ export default function SignUp({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  firebase.auth().signOut()
+
+  async function handleSubmit() {
+    console.log(name)
+    if (name && password && email) {
+      await firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(async () => {
+          let uid = firebase.auth().currentUser.uid
+          await firebase.database().ref('users').child(uid).set({
+            saldo: 0
+          })
+        })
+        .catch((error) => {
+          alert(error.code)
+        })
+    }
+    else {
+      alert('usuario vazio')
+    }
+  }
+
   return (
     <Background>
       <Container>
@@ -28,7 +52,10 @@ export default function SignUp({ navigation }) {
             autoCorrect={false}
             autoCapitalize="none"
             value={name}
-            onChange={text => setName(text)}
+            onChangeText={(name) => {
+              console.log(name)
+              setName(name)
+            }}
           />
         </AreaInput>
 
@@ -38,7 +65,7 @@ export default function SignUp({ navigation }) {
             autoCorrect={false}
             autoCapitalize="none"
             value={email}
-            onChange={text => setEmail(text)}
+            onChangeText={text => setEmail(text)}
           />
         </AreaInput>
 
@@ -49,11 +76,11 @@ export default function SignUp({ navigation }) {
             autoCapitalize="none"
             secureTextEntry={true}
             value={password}
-            onChange={text => setPassword(text)}
+            onChangeText={text => setPassword(text)}
           />
         </AreaInput>
 
-        <SubmitButton onPress={() => { }}>
+        <SubmitButton onPress={handleSubmit}>
           <SubmitText>Cadastrar</SubmitText>
         </SubmitButton>
 
