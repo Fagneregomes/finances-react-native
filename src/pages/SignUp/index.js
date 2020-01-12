@@ -1,7 +1,6 @@
 import React, { useState } from "react"
+import Icon from 'react-native-vector-icons/FontAwesome5'
 import firebase from '../../services/firebaseConnection'
-
-import { Text } from 'react-native'
 
 import {
   Background,
@@ -23,7 +22,6 @@ export default function SignUp({ navigation }) {
   firebase.auth().signOut()
 
   async function handleSubmit() {
-    console.log(name)
     if (name && password && email) {
       await firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(async () => {
@@ -44,7 +42,7 @@ export default function SignUp({ navigation }) {
   return (
     <Background>
       <Container>
-        <SignUpText>Quase tudo pronto :)</SignUpText>
+        <SignUpText>Quase tudo pronto <Icon name='grin-stars' solid size={30} /></SignUpText>
 
         <AreaInput>
           <Input

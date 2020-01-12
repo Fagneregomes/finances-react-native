@@ -9,7 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import New from "./pages/New";
 import Profile from "./pages/Profile";
 
-import { commonStyles } from './styles'
+import commonStyles from './styles'
 
 const Routes = createAppContainer(
   createSwitchNavigator({
@@ -27,7 +27,7 @@ const Routes = createAppContainer(
         //showLabel: false,
         activeTintColor: '#FFF',
         style: {
-          backgroundColor: commonStyles.primary
+          backgroundColor: commonStyles.colors.primary,
         }
       }
     })
