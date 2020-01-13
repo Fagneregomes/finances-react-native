@@ -1,17 +1,17 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { ScrollView } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
+import Resume from './Resume'
 
-import firebase from '../../services/firebaseConnection'
-// import { Container } from './styles';
+import { Container } from './styles';
 
 export default function Dashboard({ navigation }) {
   return (
-    <View>
-      <TouchableOpacity onPress={() => firebase.auth().signOut()}>
-        <Text>Sair</Text>
-      </TouchableOpacity>
-    </View>
+    <Container>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Resume />
+      </ScrollView>
+    </Container>
   );
 }
 

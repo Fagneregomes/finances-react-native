@@ -1,13 +1,14 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons'
+import { Button } from 'react-native-paper'
 
-// import { Container } from './styles';
+import firebase from '../../services/firebaseConnection'
 
 export default function Profile() {
   return (
     <View>
-      <Text>Profile</Text>
+      <Button mode='contained' onPress={() => firebase.auth().signOut()}>Sair</Button>
     </View>
   );
 }
