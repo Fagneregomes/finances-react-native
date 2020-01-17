@@ -50,10 +50,7 @@ export default function SignUp({ navigation }) {
             autoCorrect={false}
             autoCapitalize="none"
             value={name}
-            onChangeText={(name) => {
-              console.log(name)
-              setName(name)
-            }}
+            onChangeText={(name) => { setName(name) }}
           />
         </AreaInput>
 
