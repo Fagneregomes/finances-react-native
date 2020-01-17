@@ -1,15 +1,15 @@
 import React from 'react';
 import { ScrollView } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import Resume from './Resume'
+import Pending from './Pending'
 
 import { Container } from './styles';
 
-export default function Dashboard({ navigation }) {
+export default function Dashboard() {
   return (
     <Container>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Resume />
+        <Pending />
       </ScrollView>
     </Container>
   );

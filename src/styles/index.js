@@ -6,9 +6,9 @@ export default {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#250048',
-    secundary: '#9b23ea',
-    button: '#00C1EB',
-    text: '#333'
+    primary: '#7159c1',
+    secundary: '#250048',
+    button: '#F9386A',
+    text: '#222'
   }
 }
