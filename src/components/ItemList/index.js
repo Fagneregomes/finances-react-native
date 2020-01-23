@@ -1,15 +1,17 @@
-import React from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import React from 'react'
+import Icon from 'react-native-vector-icons/FontAwesome'
+import { useDispatch, useSelector } from 'react-redux'
 import moment from 'moment'
 
 import { Subheading, Caption } from 'react-native-paper'
 
 import { Container, BorderIcon, BoxLeft, ContentLeft, BoxRight, ContentRight } from './styles';
 
-import categories from '../../services/categories'
 
 export default function ItemList(props) {
-  const { description, idCategory, date } = props.data
+  const { description, idCategory, date, price, type } = props.data
+  const categories = useSelector(state => state.categories);
+
   const sCategory = categories.find(item => item.id === idCategory)
 
   return (
@@ -27,7 +29,10 @@ export default function ItemList(props) {
       <BoxRight>
         <ContentRight>
           <Caption>{sCategory.description}</Caption>
-          <Subheading>R$ 250.00</Subheading>
+          {type === 0
+            ? <Subheading style={{ color: 'red' }}>R$ - {price.toFixed(2)}</Subheading>
+            : <Subheading style={{ color: 'green' }}>R$ {price.toFixed(2)}</Subheading>
+          }
         </ContentRight>
       </BoxRight>
     </Container>

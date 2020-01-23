@@ -3,6 +3,10 @@ import { StatusBar } from "react-native";
 import { Provider as PaperProvider } from 'react-native-paper';
 import { Provider } from 'react-redux';
 
+if (__DEV__) {
+  import('./configs/ReactotronConfig').then(() => console.log('Reactotron Configured'))
+}
+
 import Routes from "./routes";
 import { store } from './store';
 
