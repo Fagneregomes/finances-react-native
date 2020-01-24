@@ -19,7 +19,7 @@ export default function Pending() {
           titleStyle={styles.titleStyle}
         />
         <Card.Content>
-          {registers.map((item) => <ItemList key={item.id} data={item} />)}
+          {registers.data.map((data) => <ItemList key={data.id} {...data} />)}
         </Card.Content>
       </Card>
     </Container>

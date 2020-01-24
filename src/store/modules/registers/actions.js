@@ -1,29 +1,29 @@
 /**
  * Action types
  */
-export default {
-  REGISTER_REQUEST = '@registers/REGISTER_REQUEST',
-  REGISTER_SUCCESS = '@registers/REGISTER_SUCCESS',
-  REGISTER_FAILURE = '@Repositories/REGISTER_FAILURE',
+export const actionType = {
+  REGISTER_REQUEST: '@registers/REQUEST',
+  REGISTER_SUCCESS: '@registers/SUCCESS',
+  REGISTER_FAILURE: '@registers/FAILURE',
 }
 
 
-export function registerRequest(data) {
+export function registerRequest(expenseType) {
   return {
-    type: REGISTER_REQUEST,
-    payload: { data },
+    type: actionType.REGISTER_REQUEST,
+    payload: expenseType,
   };
 }
 
-export function registerSuccess(data) {
+export function registerSuccess(payload) {
   return {
-    type: REGISTER_SUCCESS,
-    payload: { data },
+    type: actionType.REGISTER_SUCCESS,
+    payload,
   };
 }
 
 export function registerFailure() {
   return {
-    type: REGISTER_FAILURE,
+    type: actionType.REGISTER_FAILURE,
   };
 }
