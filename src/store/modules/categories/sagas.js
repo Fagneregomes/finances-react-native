@@ -1,9 +1,9 @@
 
 import { takeLatest, call, put, all } from 'redux-saga/effects';
 
-import { updateProfileSuccess, updateProfileFailure } from './actions';
+import { categoriesRequest } from './actions';
 
-export function* updateProfile({ payload }) {
+export function* getCategories() {
   try {
     const { name, email, avatar_id, ...rest } = payload.data;
 

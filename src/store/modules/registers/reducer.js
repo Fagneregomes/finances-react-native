@@ -1,4 +1,5 @@
 import produce from 'immer';
+import { actionType } from './actions'
 
 const INITIAL_STATE = [{
   id: 1,
@@ -23,19 +24,21 @@ const INITIAL_STATE = [{
   type: 0
 }]
 
-export default function user(state = INITIAL_STATE, action) {
+export default function registers(state = INITIAL_STATE, action) {
   return produce(state, draft => {
     switch (action.type) {
-      case '@auth/SIGN_IN_SUCCESS': {
-        draft.profile = action.payload.user;
+      case actionType.REGISTER_REQUEST: {
+        draft.isLoading = true
         break;
       }
-      case '@user/UPDATE_PROFILE_SUCCESS': {
-        draft.profile = action.payload.profile;
+      case actionType.REGISTER_SUCCESS: {
+        draft.isLoading = false;
+        draft.data = [...draft.data, ...action.payload]
         break;
       }
-      case '@auth/SIGN_OUT': {
-        draft.profile = null;
+      case actionType.REGISTER_FAILURE: {
+        draft.isLoading = false
+        draft.data = []
         break;
       }
       default:

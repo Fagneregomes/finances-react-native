@@ -1,31 +1,37 @@
-import produce from 'immer';
+import produce from 'immer'
+import { actionType } from './actions'
 
-const INITIAL_STATE = [{
-  id: 1,
-  description: 'Residencia',
-  icon: 'home',
-  color: 'green'
-},
-{
-  id: 2,
-  description: 'Transporte',
-  icon: 'car',
-  color: 'red'
-}]
+const INITIAL_STATE = {
+  isLoading: false,
+  data: [{
+    id: 1,
+    description: 'Residencia',
+    icon: 'home',
+    color: 'green'
+  },
+  {
+    id: 2,
+    description: 'Transporte',
+    icon: 'car',
+    color: 'red'
+  }]
+}
 
 export default function user(state = INITIAL_STATE, action) {
   return produce(state, draft => {
     switch (action.type) {
-      case '@auth/SIGN_IN_SUCCESS': {
-        draft.profile = action.payload.user;
+      case actionType.CATEGORIES_REQUEST: {
+        draft.isLoading = true;
         break;
       }
-      case '@user/UPDATE_PROFILE_SUCCESS': {
-        draft.profile = action.payload.profile;
+      case actionType.CATEGORIES_SUCCESS: {
+        draft.data = action.payload.data;
+        draft.isLoading = false;
         break;
       }
-      case '@auth/SIGN_OUT': {
-        draft.profile = null;
+      case actionType.CATEGORIES_FAILURE: {
+        draft.data = [];
+        draft.isLoading = false;
         break;
       }
       default:

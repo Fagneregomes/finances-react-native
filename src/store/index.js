@@ -1,9 +1,11 @@
 
 import createSagaMiddleware from 'redux-saga';
+import Reactotron from 'reactotron-react-native'
 
 import createStore from './createStore';
 import rootReducer from './modules/rootReducer';
 import rootSaga from './modules/rootSaga';
+
 
 const sagaMiddleware = createSagaMiddleware();
 

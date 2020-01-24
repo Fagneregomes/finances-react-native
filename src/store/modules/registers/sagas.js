@@ -1,23 +1,25 @@
 
-import { takeLatest, call, put, all } from 'redux-saga/effects';
+import { takeLatest, put, all } from 'redux-saga/effects';
 
-import { updateProfileSuccess, updateProfileFailure } from './actions';
+import { registerSuccess, registerFailure, actionType } from './actions';
 
-export function* updateProfile({ payload }) {
+export function* getRegisters({ payload }) {
   try {
-    const { name, email, avatar_id, ...rest } = payload.data;
+    const data = [{
+      id: 4,
+      description: 'Conta de água',
+      idCategory: 1,
+      date: new Date(Date.now()),
+      price: 93,
+      type: 1
+    }]
 
-    const profile = Object.assign(
-      { name, email, avatar_id },
-      rest.oldPassword ? rest : {}
-    );
+    yield put(registerSuccess(data));
 
-    const response = yield call(api.put, 'users', profile);
-
-    yield put(updateProfileSuccess(response.data));
   } catch (err) {
-    yield put(updateProfileFailure());
+    alert('Erro no request getRegisters, ', err)
+    yield put(registerFailure());
   }
 }
 
-export default all([takeLatest('@user/UPDATE_PROFILE_REQUEST', updateProfile)]);
+export default all([takeLatest(actionType.REGISTER_REQUEST, getRegisters)]);

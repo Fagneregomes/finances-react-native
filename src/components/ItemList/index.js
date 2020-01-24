@@ -9,10 +9,9 @@ import { Container, BorderIcon, BoxLeft, ContentLeft, BoxRight, ContentRight } f
 
 
 export default function ItemList(props) {
-  const { description, idCategory, date, price, type } = props.data
+  const { description, idCategory, date, price, type } = props
   const categories = useSelector(state => state.categories);
-
-  const sCategory = categories.find(item => item.id === idCategory)
+  const sCategory = categories.data.find(item => item.id === idCategory)
 
   return (
     <Container>
