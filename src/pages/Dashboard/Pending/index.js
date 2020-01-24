@@ -3,10 +3,10 @@ import { Card } from 'react-native-paper'
 import { useDispatch, useSelector } from 'react-redux'
 import 'moment/locale/pt-br'
 
+import { styles, Container, ViewMore } from './styles'
 
 // Custon components
 import ItemList from '../../../components/ItemList'
-import { styles, Container } from './styles'
 
 export default function Pending() {
   const dispatch = useDispatch();
@@ -21,6 +21,7 @@ export default function Pending() {
         <Card.Content>
           {registers.map((item) => <ItemList key={item.id} data={item} />)}
         </Card.Content>
+        <ViewMore onPress={() => alert('desenvolva')}>Visualizar tudo</ViewMore>
       </Card>
     </Container>
   );

@@ -9,6 +9,15 @@ export const ContentValue = styled.View`
   flex-direction: column;
 `;
 
+export const ViewMore = styled.Text`
+  align-self: flex-end;
+  font-size: 13px;
+  font-weight: bold;
+  font-style: italic;
+  margin: 5px;  
+  color: red;
+`
+
 
 export const styles = StyleSheet.create({
   leftAvatar: {

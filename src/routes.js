@@ -1,5 +1,6 @@
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createBottomTabNavigator } from 'react-navigation-tabs'
+import { createStackNavigator } from 'react-navigation-stack';
 
 import Preload from './components/Preload'
 import SignIn from "./pages/SignIn";
@@ -18,10 +19,9 @@ const Routes = createAppContainer(
       SignIn,
       SignUp
     }),
-    App: createBottomTabNavigator({
+    App: createStackNavigator({
       Dashboard,
-      New,
-      Profile
+      New
     }, {
       tabBarOptions: {
         //showLabel: false,
@@ -30,6 +30,9 @@ const Routes = createAppContainer(
           backgroundColor: commonStyles.colors.primary,
         }
       }
+    }),
+    Nav: createStackNavigator({
+      Profile
     })
   })
 );

@@ -13,8 +13,15 @@ const INITIAL_STATE = [{
   idCategory: 2,
   date: new Date(Date.now()),
   price: 250.93,
-  type: 1
-},]
+  type: 0
+}, {
+  id: 3,
+  description: 'Conta de água',
+  idCategory: 1,
+  date: new Date(Date.now()),
+  price: 100,
+  type: 0
+}]
 
 export default function user(state = INITIAL_STATE, action) {
   return produce(state, draft => {
