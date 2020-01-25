@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 import Pending from './Pending'
 import commonStyled from '../../styles/index'
 
-import { Container, BoxHeader, TextHeader } from './styles';
+import { Container, BoxHeader, TextHeader, BoxRefresh } from './styles';
 
 function Header() {
   return (
@@ -21,23 +21,24 @@ function Header() {
 
 function Refresh() {
   return (
-    <Icon name='loop' size={24} color={commonStyled.colors.secundary} />
+    <BoxRefresh>
+      <Icon name='loop' onPress={() => { alert('teste') }} size={30} color={commonStyled.colors.secundary} />
+    </BoxRefresh>
   )
 }
 
 export default function Dashboard({ navigation }) {
-  console.tron.log(navigation)
   return (
     <Container>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Pending />
-        <Button title='Press' onPress={() => navigation.navigate('Profile')} />
+        <Button title='Press' onPress={() => navigation.navigate('New')} />
       </ScrollView>
     </Container>
   );
 }
 
 Dashboard.navigationOptions = {
-  headerTitle: () => <Header />,
-
+  headerTitle: Header,
+  headerRight: Refresh
 }

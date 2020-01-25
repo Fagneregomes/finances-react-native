@@ -7,8 +7,10 @@ export const Container = styled.View`
 `;
 
 export const BoxHeader = styled.View`
-  flex: 1;
   flex-direction: row;
+`
+export const BoxRefresh = styled.View`
+  margin-right: 20px;
 `
 
 export const TextHeader = styled.Text`
@@ -16,4 +18,3 @@ export const TextHeader = styled.Text`
   font-weight: bold;
   color: ${commonStyles.colors.text}
 `
-
