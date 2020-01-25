@@ -21,7 +21,8 @@ const Routes = createAppContainer(
     }),
     App: createStackNavigator({
       Dashboard,
-      New
+      New,
+      Profile
     }, {
       tabBarOptions: {
         //showLabel: false,
@@ -31,9 +32,6 @@ const Routes = createAppContainer(
         }
       }
     }),
-    Nav: createStackNavigator({
-      Profile
-    })
   })
 );
 

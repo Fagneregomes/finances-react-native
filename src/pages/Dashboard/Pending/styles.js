@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
 import styled from 'styled-components/native';
+import commonStyled from '../../../styles'
 
 export const Container = styled.View`
   padding: 10px;
@@ -11,11 +12,10 @@ export const ContentValue = styled.View`
 
 export const ViewMore = styled.Text`
   align-self: flex-end;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: bold;
-  font-style: italic;
-  margin: 5px;  
-  color: red;
+  padding: 8px;  
+  color: ${commonStyled.colors.secundary};
 `
 
 

@@ -6,9 +6,9 @@ export default {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#7159c1',
-    secundary: '#250048',
-    button: '#F9386A',
+    primary: '#250048',
+    secundary: '#F9386A',
+    theme: ['#7159c1', '#250048'],
     text: '#222'
   }
 }

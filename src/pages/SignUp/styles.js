@@ -38,7 +38,7 @@ export const Input = styled.TextInput`
 export const SubmitButton = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
-  background-color: ${commonStyles.colors.button};
+  background-color: ${commonStyles.colors.secundary};
   height: 45px;
   width: 90%;
   border-radius: 7px;

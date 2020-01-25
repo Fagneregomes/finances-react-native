@@ -1,7 +1,6 @@
 import React from 'react'
-import { Card } from 'react-native-paper'
+import { Card, TouchableRipple } from 'react-native-paper'
 import { useDispatch, useSelector } from 'react-redux'
-import 'moment/locale/pt-br'
 
 import { styles, Container, ViewMore } from './styles'
 
@@ -9,7 +8,6 @@ import { styles, Container, ViewMore } from './styles'
 import ItemList from '../../../components/ItemList'
 
 export default function Pending() {
-  const dispatch = useDispatch();
   const registers = useSelector(state => state.registers);
   return (
     <Container>
