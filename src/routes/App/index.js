@@ -6,21 +6,24 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 
 import Dashboard from "../../pages/Dashboard";
 import New from "../../pages/New";
+import Categories from '../../pages/Categories'
 
 import Profile from "../../pages/Profile";
 import Todo from "../../pages/Todo";
 
 import commonStyles from '../../styles'
 
-const subApp = createStackNavigator({
+const subFinances = createStackNavigator({
   Dashboard,
-  New
+  New,
+  Categories
 })
 
 export const App = createBottomTabNavigator({
   Dashboard: {
-    screen: subApp,
+    screen: subFinances,
     navigationOptions: {
+      title: 'Finanças',
       tabBarIcon: ({ tintColor }) => <Icon name='poll' size={24} color={tintColor} />
     }
   },

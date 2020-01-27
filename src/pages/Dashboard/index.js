@@ -1,14 +1,14 @@
 import React from 'react';
-import { ScrollView, Button } from 'react-native'
+import { ScrollView } from 'react-native'
+import ButtonFlutuante from '../../components/ButtonFlutuante'
 import moment from 'moment'
 import 'moment/locale/pt-br'
-
 
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Pending from './Pending'
 import commonStyled from '../../styles/index'
 
-import { Container, BoxHeader, TextHeader, BoxRefresh } from './styles';
+import { Container, BoxHeader, TextHeader, BoxRefresh, styles } from './styles';
 
 function Header() {
   return (
@@ -28,17 +28,26 @@ function Refresh() {
 }
 
 export default function Dashboard({ navigation }) {
+  const iconsFAB = [
+    {
+      icon: 'plus',
+      label: 'Adicionar transação',
+      onPress: () => navigation.navigate('New'),
+      style: styles.stylesFAB
+    },
+  ]
+
   return (
     <Container>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Pending />
-        <Button title='Press' onPress={() => navigation.navigate('New')} />
+        <Pending navigation={navigation} />
       </ScrollView>
+      <ButtonFlutuante icons={iconsFAB} />
     </Container>
   );
 }
 
 Dashboard.navigationOptions = {
   headerTitle: Header,
-  headerRight: Refresh
+  headerRight: Refresh,
 }

@@ -7,7 +7,7 @@ import { styles, Container, ViewMore } from './styles'
 // Custon components
 import ItemList from '../../../components/ItemList'
 
-export default function Pending() {
+export default function Pending({ navigation }) {
   const registers = useSelector(state => state.registers);
   return (
     <Container>
@@ -19,7 +19,7 @@ export default function Pending() {
         <Card.Content>
           {registers.data.map((data) => <ItemList key={data.id} {...data} />)}
         </Card.Content>
-        <ViewMore onPress={() => alert('desenvolva')}>Visualizar tudo</ViewMore>
+        <ViewMore onPress={() => navigation.navigate('New')}>Visualizar tudo</ViewMore>
       </Card>
     </Container>
   );

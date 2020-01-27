@@ -1,5 +1,13 @@
 import styled from 'styled-components/native';
+import { StyleSheet } from 'react-native'
 import commonStyles from '../../styles'
+
+export const styles = StyleSheet.create({
+  stylesFAB: {
+    backgroundColor: commonStyles.colors.secundary,
+    padding: 1,
+  }
+})
 
 export const Container = styled.View`
   flex: 1;
@@ -16,5 +24,5 @@ export const BoxRefresh = styled.View`
 export const TextHeader = styled.Text`
   font-size: 20px;
   font-weight: bold;
-  color: ${commonStyles.colors.text}
+  color: ${commonStyles.colors.text};
 `
