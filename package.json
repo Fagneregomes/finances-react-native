@@ -15,7 +15,7 @@
     "@react-native-community/masked-view": "^0.1.6",
     "@wwdrew/react-native-numeric-textinput": "^1.1.0",
     "firebase": "^7.6.2",
-    "immer": "^5.3.2",
+    "immer": "^8.0.1",
     "moment": "^2.24.0",
     "react": "16.9.0",
     "react-native": "0.61.5",
